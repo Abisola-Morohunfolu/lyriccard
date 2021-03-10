@@ -1,8 +1,12 @@
 import { ButtonStyle } from './ButtonStyle';
 
-const CustomButton: React.FC = ({ children }) => {
+type Props = {
+	clicked: () => void;
+};
+
+const CustomButton: React.FC<Props> = ({ children, clicked }) => {
 	return (
-		<ButtonStyle>
+		<ButtonStyle onClick={clicked}>
 			<span>{children}</span>
 		</ButtonStyle>
 	);

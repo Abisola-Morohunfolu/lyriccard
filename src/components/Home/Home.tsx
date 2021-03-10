@@ -1,17 +1,30 @@
+import { useHistory } from 'react-router-dom';
 import CustomButton from '../UI/Button/Button';
 // import LoadingScreen from '../UI/Loading/LoadingScreen';
-import { HomeConatainer } from './HomeStyle';
+import { BlackDiv, HomeConatainer } from './HomeStyle';
+
+const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] };
 
 const Home: React.FC = () => {
+	const { push } = useHistory();
+
 	return (
-		<HomeConatainer>
-			{/* <LoadingScreen /> */}
-			<h1>
-				Create a lyric card for your favorite line,
-				<br /> in your favorite song.
-			</h1>
-			<CustomButton>Create your card</CustomButton>
-		</HomeConatainer>
+		<>
+			<HomeConatainer>
+				<BlackDiv
+					transition={transition}
+					initial={{ y: '100%' }}
+					exit={{ y: 0 }}
+					animate={{ y: '100%' }}
+				/>
+				{/* <LoadingScreen /> */}
+				<h1>
+					Create a lyric card for your favorite line,
+					<br /> in your favorite song.
+				</h1>
+				<CustomButton clicked={() => push('/create')}>Create your card</CustomButton>
+			</HomeConatainer>
+		</>
 	);
 };
 
