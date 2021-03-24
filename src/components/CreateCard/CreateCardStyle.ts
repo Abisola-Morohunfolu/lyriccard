@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const SliderContainer = styled.section`
+export const Container = styled.div`
 	overflow: hidden;
 	position: relative;
 `;
